@@ -16,10 +16,10 @@ export function SideBar() {
 
             <div className="flex flex-col items-center">
                 <UserCircle size={90} />
-                <p>Usuário</p>
+                <p className="text-xl font-semibold">Usuário</p>
             </div>
 
-            <div className="flex flex-col mt-12 gap-5">
+            <div className="flex flex-col items-center mt-12 gap-5">
                 <div className="flex justify-center items-center hover:text-orange-400 cursor-pointer gap-2">
                     <span>
                         <UserPlus size={32} />
