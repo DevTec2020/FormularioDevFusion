@@ -1,27 +1,40 @@
-import { UserPlus, SignOut, Database } from "phosphor-react"
+import { UserPlus, SignOut, Database, UserCircle } from "phosphor-react"
+
+import Logo from "../../assets/logo.jpg"
 
 
 
 export function SideBar() {
     return (
-        <aside className="group fixed top-0 left-0 h-full w-14 shadow-2xl bg-red-600 transition-all duration-300 ease-in-out hover:w-64 ">
+        <aside className="group flex flex-col justify-evenly fixed top-0 left-0 h-full w-20 shadow-2xl bg-blue-900 transition-all duration-300 ease-in-out text-white hover:w-64 ">
+            <div className="flex flex-col items-center">
+                <img 
+                    src={Logo} 
+                    alt="Frontend Fusion logo"
+                    className="rounded-lg" />
+            </div>
 
-            <div className="flex flex-col mt-12 text-white gap-5">
-                <div className="flex justify-center items-center hover:bg-gray-800 cursor-pointer gap-2">
+            <div className="flex flex-col items-center">
+                <UserCircle size={90} />
+                <p>Usuário</p>
+            </div>
+
+            <div className="flex flex-col mt-12 gap-5">
+                <div className="flex justify-center items-center hover:text-orange-400 cursor-pointer gap-2">
                     <span>
                         <UserPlus size={32} />
                     </span>
-                    <span className="hidden group-hover:inline-block">Cadastrar</span>
+                    <span className="hidden group-hover:inline-block">Cadastro</span>
                 </div>
 
-                <div className="flex justify-center items-center hover:bg-gray-800 cursor-pointer gap-2">
+                <div className="flex justify-center items-center hover:text-orange-400 cursor-pointer gap-2">
                     <span>
                         <Database size={32} />
                     </span>
-                    <span className="hidden group-hover:inline-block">Base</span>
+                    <span className="hidden group-hover:inline-block">Membros</span>
                 </div>
 
-                <div className="flex justify-center items-center hover:bg-gray-800 cursor-pointer gap-2">
+                <div className="flex justify-center items-center hover:text-orange-400 cursor-pointer gap-2">
                     <span>
                         <SignOut size={32} />
                     </span>
