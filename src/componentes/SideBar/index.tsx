@@ -6,7 +6,7 @@ import Logo from "../../assets/logo.jpg"
 
 export function SideBar() {
     return (
-        <aside className="group flex flex-col justify-evenly fixed top-0 left-0 h-full w-20 shadow-2xl bg-blue-900 transition-all duration-300 ease-in-out text-white hover:w-64 ">
+        <aside className="group flex flex-col justify-evenly px-2 fixed top-0 left-0 h-full w-24 shadow-2xl bg-blue-900 transition-all duration-300 ease-in-out text-white hover:w-64 ">
             <div className="flex flex-col items-center">
                 <img 
                     src={Logo} 
@@ -15,7 +15,7 @@ export function SideBar() {
             </div>
 
             <div className="flex flex-col items-center">
-                <UserCircle size={90} />
+                <UserCircle size={99} />
                 <p className="text-xl font-semibold">Usuário</p>
             </div>
 
