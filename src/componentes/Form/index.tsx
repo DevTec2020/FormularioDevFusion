@@ -61,6 +61,10 @@ export function Form() {
                         <label className="block text-gray-700 text-sm font-bold mb-2">GitHub</label>
                         <input type="text" className="border rounded-lg w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"  />
                     </div>
+                    
+                    <div className="py-2 bg-blue-600 rounded-lg text-center text-lg text-white font-semibold">
+                        <button>Enviar</button>
+                    </div>
                 </form>
             </div>
         </div>
