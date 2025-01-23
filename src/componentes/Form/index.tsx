@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { z } from "zod"
 import { useForm } from "react-hook-form" 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -26,19 +28,57 @@ const FormSchema = z.object({
     .optional(),
 }) 
 
-
 //Tipagem do Form
 type FormData = z.infer<typeof FormSchema>;
 
+interface UserStorage {
+    id: string
+    nome: string
+    email: string
+    telefone: string
+    cargo: string
+    linkedin?: string
+    github?: string
+}
   
 export function Form() {
+    const [candidates, setCandidates] = useState<UserStorage[]>([]);
+
     // Usando o useForm com o FormSchema para validar 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
-            resolver:zodResolver(FormSchema),
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
+            resolver: zodResolver(FormSchema),
     });
 
+    // Carregar Candidatos salvos do localStorage
+    useEffect(() => {
+        const CandidatesSalvos = localStorage.getItem("candidates");
+        if (CandidatesSalvos) {
+            setCandidates(JSON.parse(CandidatesSalvos));
+        }
+    }, []);
+
+
+    // Função para salvar favoritos no localStorage
+    const saveLocalStorage = (updatedCandidates: UserStorage[]) => {
+        setCandidates(updatedCandidates);
+        localStorage.setItem("candidates", JSON.stringify(updatedCandidates));
+    };    
+    
+    
     const onSubmit = (data: FormData) => {
-        console.log("Dados enviados:", data);
+        const newCandidate: UserStorage = {
+            //Gerando ID
+            id: crypto.randomUUID(),
+            ...data,
+        };
+
+        const updatedCandidates = [...candidates, newCandidate];
+        saveLocalStorage(updatedCandidates);
+
+        alert("Dados salvos com sucesso!");
+
+        //Limpando Formulário
+        reset();
     }
 
     return (
@@ -130,8 +170,11 @@ export function Form() {
                         {errors.github && <p className="text-red-500 text-sm">{errors.github.message}</p> }
                     </div> 
 
-                    <div className="py-2 bg-blue-600 rounded-lg text-center text-lg text-white font-semibold">
-                        <button type="submit">Enviar</button>
+                    <div>
+                        <button type="submit"
+                        className="w-full py-2 bg-blue-600 rounded-lg text-center text-lg text-white font-semibold">
+                            Enviar
+                        </button>
                     </div>
                 </form>
             </div>
