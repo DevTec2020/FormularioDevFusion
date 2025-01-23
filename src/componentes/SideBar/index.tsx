@@ -1,6 +1,9 @@
 import { UserPlus, SignOut, Database, UserCircle } from "phosphor-react"
 
+import { Link } from "react-router-dom"
+
 import Logo from "../../assets/logo.jpg"
+
 
 
 
@@ -24,21 +27,33 @@ export function SideBar() {
                     <span>
                         <UserPlus size={32} />
                     </span>
-                    <span className="hidden group-hover:inline-block">Cadastro</span>
+                    
+                    <span className="hidden group-hover:inline-block">
+                        <Link to="/cadastro">Cadastro</Link>
+                    </span>
+                   
                 </div>
 
                 <div className="flex justify-center items-center hover:text-orange-400 cursor-pointer gap-2">
                     <span>
                         <Database size={32} />
                     </span>
-                    <span className="hidden group-hover:inline-block">Membros</span>
+                    
+                    <span className="hidden group-hover:inline-block">
+                      <Link to="/membros">Membros</Link>
+                    </span>
+
                 </div>
 
                 <div className="flex justify-center items-center hover:text-orange-400 cursor-pointer gap-2">
                     <span>
                         <SignOut size={32} />
                     </span>
-                    <span className="hidden group-hover:inline-block">Sair</span>
+                    <span 
+                    className="hidden group-hover:inline-block"
+                    onClick={()=> {alert("Saindo...")}}>
+                        Sair
+                    </span>
                 </div>
             </div>
         </aside>

@@ -41,7 +41,7 @@ interface UserStorage {
     github?: string
 }
   
-export function Form() {
+export function FormCadastro() {
     const [candidates, setCandidates] = useState<UserStorage[]>([]);
 
     // Usando o useForm com o FormSchema para validar 
