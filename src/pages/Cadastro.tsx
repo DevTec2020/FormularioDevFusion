@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { Banner } from "../componentes/Banner";
+
 import { z } from "zod"
 import { useForm } from "react-hook-form" 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -83,12 +85,8 @@ export function FormCadastro() {
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-200">
-            <div className="py-2 text-center">
-                <h1 className="text-3xl font-bold text-blue-600">Frontend Fusion</h1>
-                <h2 className="text-lg text-gray-700">
-                    <code>&lt;Codifique seu futuro hoje /&gt;</code>
-                </h2>
-            </div>     
+            <Banner/>
+
             <div className="flex-1 flex flex-col items-center justify-center">     
                 <form
                 onSubmit={handleSubmit(onSubmit)} 
