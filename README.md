@@ -15,6 +15,7 @@ O objetivo foi Desenvolver um formulário de cadastro de membros utilizando Reac
 - Phosphor icons: Ícones utilizados na página.
 - Local Storage: Armazenamento de dados do formulário.
 - React-hook-form: Gerenciamento do formulário.
+- React-router: Gerenciamento de rotas. 
 - Zod: Validação do formulário.
 
 
