@@ -1,5 +1,9 @@
+import { Banner } from "../componentes/Banner"
+
 export function Membros() {
     return (
-        <h1>Membros</h1>
+        <div>
+            <Banner/>
+        </div>
     )
 }
